@@ -1,0 +1,13 @@
+{
+  "name": "clickup-dashboard",
+  "description": "",
+  "scripts": {
+    "ci:publish": "pnpm publish -r"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@changesets/cli": "^2.25.2"
+  }
+}
