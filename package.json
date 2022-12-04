@@ -4,6 +4,7 @@
   "scripts": {
     "ci:publish": "pnpm publish -r"
   },
+  "packageManager": "pnpm@7.16.1",
   "keywords": [],
   "author": "",
   "license": "ISC",

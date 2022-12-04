@@ -1,12 +1,57 @@
 {
   "name": "@clickup-dashboard/api",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node ./build.js",
+    "build-schema": "node --experimental-specifier-resolution=node --loader ts-node/esm ./src/buildSchema.ts",
+    "start": "node --experimental-import-meta-resolve --es-module-specifier-resolution=node ./dist/index.js",
+    "dev": "nodemon --config nodemon.json src/index.ts",
+    "dev:debug": "nodemon --config nodemon.json --inspect-brk src/index.ts",
+    "migrate-up": "migrate-mongo up",
+    "migrate-down": "migrate-mongo down",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --quiet --ext .ts"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@anatine/esbuild-decorators": "^0.2.19",
+    "@types/koa": "^2.13.5",
+    "@types/koa__router": "^12.0.0",
+    "@types/node": "18.11.10",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "esbuild": "^0.15.17",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "4.9.3"
+  },
+  "dependencies": {
+    "@apollo/datasource-rest": "^4.3.2",
+    "@apollo/server": "^4.2.2",
+    "@as-integrations/koa": "^0.2.1",
+    "@clickup-dashboard/shared": "workspace:^1.0.0",
+    "@koa/cors": "^4.0.0",
+    "@koa/router": "^12.0.0",
+    "@typegoose/typegoose": "^9.13.2",
+    "bcrypt": "^5.1.0",
+    "class-validator": "^0.13.2",
+    "dotenv": "^16.0.3",
+    "glob-promise": "^5.0.0",
+    "graphql": "15.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "mongoose": "^6.7.5",
+    "mongoose-lean-virtuals": "^0.9.1",
+    "qs": "^6.11.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1",
+    "typedi": "^0.10.0",
+    "vite": "^3.2.4"
+  }
 }
